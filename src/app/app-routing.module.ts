@@ -5,6 +5,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {HomeComponent} from './home/home.component';
 import {ConfirmationComponent} from './confirmation/confirmation.component';
 import {ProfileComponent} from './profile/profile.component';
+import {ReservationComponent} from './reservation/reservation.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'confirm', component: ConfirmationComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'reservation', component: ReservationComponent},
   {path: '**', component: HomeComponent}
 ];
 

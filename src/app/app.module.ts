@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './home/home.component';
 import {ConfirmationComponent} from './confirmation/confirmation.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
 
@@ -17,7 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegistrationComponent,
     HomeComponent,
     ConfirmationComponent,
-    ProfileComponent
+    ProfileComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
