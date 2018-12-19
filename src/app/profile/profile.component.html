@@ -1,0 +1,62 @@
+<div class="container">
+  <h3>Личный кабинет</h3>
+  <form #carForm="ngForm" (ngSubmit)="saveCar()">
+    <div class="row">
+      <div class="col-md-2">
+        <label for="fname">Имя</label>
+        <input type="text" class="form-control" id="fname" required [(ngModel)]="user.fname" name="fname">
+      </div>
+      <div class="col-md-3">
+        <label for="lname">Фамилия</label>
+        <input type="text" class="form-control" id="lname" required [(ngModel)]="user.lname" name="lname">
+      </div>
+      <div class="col-md-2">
+        <label for="mname">Отчество</label>
+        <input type="text" class="form-control" id="mname" required [(ngModel)]="user.mname" name="mname">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="dateOfBirth">Дата рождения</label>
+        <input type="text" class="form-control" id="dateOfBirth" required [(ngModel)]="user.dateOfBirth" name="dateOfBirth">
+      </div>
+      <div class="col-md-3">
+        <label for="placeOfBirth">Место рождения</label>
+        <input type="text" class="form-control" id="placeOfBirth" required [(ngModel)]="user.placeOfBirth" name="placeOfBirth">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="passportNumber">Серия и номер паспорта</label>
+        <input type="text" class="form-control" id="passportNumber" required [(ngModel)]="user.passportNumber" name="passportNumber">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="passportIssueDate">Дата выдачи паспорта</label>
+        <input type="text" class="form-control" id="passportIssueDate" required [(ngModel)]="user.passportIssueDate" name="passportIssueDate">
+      </div>
+      <div class="col-md-3">
+        <label for="passportIssuePlace">Кем выдан</label>
+        <input type="text" class="form-control" id="passportIssuePlace" required [(ngModel)]="user.passportIssuePlace" name="passportIssuePlace">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="registrationAddress">Адрес регистрации</label>
+        <input type="text" class="form-control" id="registrationAddress" required [(ngModel)]="user.registrationAddress" name="registrationAddress">
+      </div>
+      <div class="col-md-3">
+        <label for="livingAddress">Адрес проживания</label>
+        <input type="text" class="form-control" id="livingAddress" required [(ngModel)]="user.livingAddress" name="livingAddress">
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Обновить личные данные</button>
+
+  </form>
+</div>

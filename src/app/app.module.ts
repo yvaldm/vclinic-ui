@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './home/home.component';
 import {ConfirmationComponent} from './confirmation/confirmation.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
 
@@ -15,7 +16,8 @@ import {ConfirmationComponent} from './confirmation/confirmation.component';
     LoginComponent,
     RegistrationComponent,
     HomeComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
