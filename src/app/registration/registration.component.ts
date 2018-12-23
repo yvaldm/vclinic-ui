@@ -39,7 +39,7 @@ export class RegistrationComponent implements OnInit {
       return;
     }
     this.loading = true;
-    const userRegistration = new UserRegistration(this.email, 'pwd');
+    const userRegistration = new UserRegistration(this.email, this.password);
     this.userService.signup(userRegistration).subscribe(() => {
     });
     this.loading = false;
@@ -47,6 +47,10 @@ export class RegistrationComponent implements OnInit {
 
   get email() {
     return this.registerForm.get('email').value;
+  }
+
+  get password() {
+    return this.registerForm.get('password1').value;
   }
 }
 
