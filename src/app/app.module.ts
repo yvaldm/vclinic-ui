@@ -7,8 +7,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './home/home.component';
 import {ConfirmationComponent} from './confirmation/confirmation.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ReservationComponent } from './reservation/reservation.component';
+import {ProfileComponent} from './profile/profile.component';
+import {ReservationComponent} from './reservation/reservation.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
 
@@ -25,7 +26,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../service/user.service';
+import {UserRegistration} from '../entity/user-registration';
 
 @Component({templateUrl: 'registration.component.html'})
 export class RegistrationComponent implements OnInit {
@@ -10,7 +12,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     // redirect to home if already logged in
   }
@@ -36,7 +39,15 @@ export class RegistrationComponent implements OnInit {
       return;
     }
 
+    const userRegistration = new UserRegistration(this.email, 'pwd');
+    this.userService.signup(userRegistration).subscribe(() => {
+    });
+
     this.loading = true;
+  }
+
+  get email() {
+    return this.registerForm.get('email').value;
   }
 }
 
