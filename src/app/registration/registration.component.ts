@@ -38,12 +38,11 @@ export class RegistrationComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
+    this.loading = true;
     const userRegistration = new UserRegistration(this.email, 'pwd');
     this.userService.signup(userRegistration).subscribe(() => {
     });
-
-    this.loading = true;
+    this.loading = false;
   }
 
   get email() {

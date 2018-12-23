@@ -16,7 +16,7 @@ export class UserService {
   private readonly signupUrl: string;
 
   constructor(private http: HttpClient) {
-    this.signupUrl = 'https://localhost:8080/signup';
+    this.signupUrl = 'http://localhost:8080/user/signup';
   }
 
   public signup(userRegistration: UserRegistration) {
