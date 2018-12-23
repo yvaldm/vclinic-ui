@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../service/user.service';
+import {UserLogin} from '../entity/user-login';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
-    // redirect to home if already logged in
 
   }
 
@@ -34,7 +35,9 @@ export class LoginComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() {
+    return this.loginForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -44,5 +47,17 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.userService.login(new UserLogin(this.email, this.password))
+      .subscribe(() => {
+      });
+
+  }
+
+  get email() {
+    return this.loginForm.get('email').value;
+  }
+
+  get password() {
+    return this.loginForm.get('password').value;
   }
 }
