@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {UserRegistration} from '../entity/user-registration';
 import {UserLogin} from '../entity/user-login';
+import {UserSimple} from '../entity/user-simple';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,11 +18,13 @@ export class UserService {
   private readonly signupUrl: string;
   private readonly confirmUrl: string;
   private readonly loginUrl: string;
+  private readonly userDetailUrl: string;
 
   constructor(private http: HttpClient) {
     this.signupUrl = 'http://localhost:8080/user/signup';
     this.confirmUrl = 'http://localhost:8080/user/signup/confirm';
-    this.loginUrl = 'http://localhost:8080/login_process';
+    this.loginUrl = 'http://localhost:4200/api/login_process';
+    this.userDetailUrl = 'http://localhost:4200/api/user';
   }
 
   public signup(userRegistration: UserRegistration) {
@@ -41,9 +44,19 @@ export class UserService {
     body.set('password', userLogin.password);
 
     const options = {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+      withCredentials: true
     };
 
     return this.http.post(this.loginUrl, body.toString(), options);
+  }
+
+  public getUser() {
+
+    const options = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'}),
+      withCredentials: true
+    };
+    return this.http.get<UserSimple>(this.userDetailUrl, options);
   }
 }

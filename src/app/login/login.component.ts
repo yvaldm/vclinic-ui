@@ -48,7 +48,16 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.login(new UserLogin(this.email, this.password))
-      .subscribe(() => {
+      .subscribe(isValid => {
+        if (isValid) {
+          sessionStorage.setItem(
+            'token',
+            btoa(this.email + ':' + this.password)
+          );
+          this.router.navigate(['']);
+        } else {
+          alert('Authentication failed.');
+        }
       });
 
   }
